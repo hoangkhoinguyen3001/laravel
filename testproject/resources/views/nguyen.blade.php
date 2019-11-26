@@ -40,6 +40,17 @@ resources/views/sub.blade.php
 @section('content')
     <div>line 1</div>
 @endsection
+--(env or make mistake : homestead go database.php file )
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nguyen1
+DB_USERNAME=root
+DB_PASSWORD=
+-- homestead
+'database' =>'nguyen' //env('DB_DATABASE', 'forge'),
+'username' =>'root' //env('DB_USERNAME', 'forge'),
+'password' =>'' //env('DB_PASSWORD', ''),
 -- php artisan make:migration create_tasks_table --create=tasks
 ref. https://laravel.com/docs/5.2/quickstart
 -- php artisan migrate
@@ -49,4 +60,24 @@ ref. https://laravel.com/docs/5.2/quickstart
 return view('tasks', […Xem thêm
 -- get all tasks row
 $tasks = Task::get();
+--create database to work to api
+DROP TABLE IF EXISTS customers;
+CREATE TABLE customers(
+id serial PRIMARY KEY,
+name text,
+dob date,
+updated_at timestamp
+);
+INSERT INTO customers
+(name, dob, updated_at)
+VALUES
+('Name01', '2018-01-02', '2019-08-12 04:05:01'),
+('Name02', '2018-02-03', '2019-08-13 05:06:01'),
+('Name03', '2018-03-04', '2019-08-14 06:07:01'),
+('Name04', '2018-04-05', '2019-08-15 07:08:01'),
+('Name05', '2018-05-06', '2019-08-16 08:09:01');
+--php artisan make:controller CustomerController
+-- php artisan make:model Customer
+--return response()->json($c_all, 200);
+
 
