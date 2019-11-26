@@ -40,6 +40,18 @@ resources/views/sub.blade.php
 @section('content')
     <div>line 1</div>
 @endsection
+--class TaskController extends Controller
+{
+public function index(){
+$tasks = Task::get();
+return view("task.index",[
+'m' =>1234,
+'m2' => 'abbcc',
+'tasks' => $tasks
+]);
+}
+}
+
 --(env or make mistake : homestead go database.php file )
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
